@@ -1,0 +1,279 @@
+@import 'vendors/normalize';
+
+@import "settings/installing-font";
+@import "settings/variables-colors";
+@import "settings/media-queries";
+@import "settings/mixins";
+@import "settings/extends";
+
+/* --------------------------------------------------- *
+ * 1. GLOBAL
+/* --------------------------------------------------- */
+@import "modules/global";
+
+/* --------------------------------------------------- *
+ * 2. SITE HEADER
+/* --------------------------------------------------- */
+@import 'components/site-header';
+
+/* --------------------------------------------------- *
+ * 3. SITE MAIN
+/* --------------------------------------------------- */
+@import "components/site-main";
+
+/* --------------------------------------------------- *
+ * 4. SITE FOOTER
+/* --------------------------------------------------- */
+@import 'components/site-footer';
+
+/* --------------------------------------------------- *
+ * 5. SITE MAIN
+/* --------------------------------------------------- */
+// 5.1 SITE MAIN - COMMONS
+
+// 5.2 SITE MAIN - SITE MAIN ABOUT
+.site-main-about{
+	display: grid;
+	grid-gap: 15px; // gap row 15px, gap column 15px
+
+	grid-template-columns: repeat(8, 1fr);
+	grid-template-areas: 
+		"box-1 box-1 box-1 box-1 box-2 box-2 box-2 box-2"
+		"box-1 box-1 box-1 box-1 box-2 box-2 box-2 box-2"
+		"box-1 box-1 box-1 box-1 box-2 box-2 box-2 box-2"
+		"box-3 box-3 box-3 box-3 box-2 box-2 box-2 box-2"
+		"box-3 box-3 box-3 box-3 box-2 box-2 box-2 box-2"
+		"box-3 box-3 box-3 box-3 box-2 box-2 box-2 box-2"
+		"box-4 box-4 box-4 box-4 box-4 box-4 box-4 box-4";
+
+	@include max1280{
+		grid-template-areas:
+			"box-1 box-1 box-1 box-1 box-2 box-2 box-2 box-2"
+			"box-1 box-1 box-1 box-1 box-2 box-2 box-2 box-2"
+			"box-3 box-3 box-3 box-3 box-2 box-2 box-2 box-2"
+			"box-3 box-3 box-3 box-3 box-2 box-2 box-2 box-2"
+			"box-3 box-3 box-3 box-3 box-2 box-2 box-2 box-2"
+			"box-3 box-3 box-3 box-3 box-2 box-2 box-2 box-2"
+			"box-4 box-4 box-4 box-4 box-4 box-4 box-4 box-4";		
+		align-items: start;
+	}
+
+	@include max995{
+		grid-template-areas:
+		"box-2 box-2 box-2 box-2 box-1 box-1 box-1 box-1"
+		"box-2 box-2 box-2 box-2 box-1 box-1 box-1 box-1"
+		"box-2 box-2 box-2 box-2 box-1 box-1 box-1 box-1"
+		"box-2 box-2 box-2 box-2 box-3 box-3 box-3 box-3"
+		"box-2 box-2 box-2 box-2 box-3 box-3 box-3 box-3"
+		"box-4 box-4 box-4 box-4 box-4 box-4 box-4 box-4"
+	}
+
+	@include max767{
+		grid-template-areas:
+			"box-2 box-2 box-2 box-2 box-2 box-2 box-2 box-2"
+			"box-2 box-2 box-2 box-2 box-2 box-2 box-2 box-2"
+			"box-2 box-2 box-2 box-2 box-2 box-2 box-2 box-2"
+			"box-1 box-1 box-1 box-1 box-1 box-1 box-1 box-1"
+			"box-3 box-3 box-3 box-3 box-3 box-3 box-3 box-3"
+			"box-4 box-4 box-4 box-4 box-4 box-4 box-4 box-4";
+	}
+}
+
+.site-main-about{
+	&-profile{
+		grid-area: box-1;
+	}
+
+	&-img{
+		grid-area: box-2;
+	}
+
+	&-capabilities{
+		grid-area: box-3;
+	}
+
+	&-cta{
+		grid-area: box-4;
+	}
+}
+
+.site-main-about{
+	&-title{
+		@extend %font-title-two;
+		margin: 0 0 20px;
+		line-height: 1;			
+
+		@include max767{
+			font-size: 21px;
+		}
+	}
+	&-subtitle{
+		@extend %font-subtitle-small;
+		margin: 0 0 10px;
+		line-height: 1;
+
+		@include max767{
+			font-size: 21px;
+		}
+	}
+}
+
+.site-main-about-profile{
+	@include max767{
+		margin-bottom: 20px;
+	}
+	p{
+		@extend %font-subtitle-small;
+		font-weight: 300;
+
+		@include max767{
+			font-size: 16px;
+		}
+	}
+}
+
+.site-main-about-capabilities{
+	.list-about-capabilities{
+		list-style: none outside none;
+		margin: 0;
+		padding: 0;
+		li{
+			display: block;
+			@extend %font-subtitle-small;
+			font-weight: 300; 
+
+			@include max767{
+				font-size: 16px;
+			}
+		}
+	}
+}
+
+.site-main-about-img{
+	img{
+		width: 100%;
+	}
+}
+
+.site-main-about-cta{
+	margin-top: 120px;
+
+	@extend %font-subtitle-small;
+	font-weight: 300;
+	text-align: center;
+
+	@include max1280{
+		margin-top: 40px;
+	}
+	@include max767{
+		margin-top: 0;
+		text-align: left;
+		font-size: 14px;
+	}
+
+	a{
+		color: $color-primary;
+		font-weight: 400;
+
+		&:hover,
+		&:focus{
+			text-decoration: underline;
+		}
+	}
+}
+
+// 5.3 SITE MAIN - SITE MAIN PORTFOLIO
+.site-main-about{
+	+ .site-main-portfolio{
+		margin-top: 140px;
+		@include max1280{
+			margin-top: 75px;
+		}
+	}
+}
+
+.site-main-portfolio{
+	display: grid;
+	grid-gap: 15px;
+
+	grid-template-columns: 1fr 1fr;
+
+	@include max690{
+		grid-template-columns: 1fr;
+	}
+}
+
+
+.portfolio-item{
+	margin-bottom: 140px;
+	@include max1280{
+		margin-bottom: 20px;
+	}
+	@include max690{
+		grid-column: 1;
+	}
+	&-link{
+		background: $color-dark;
+		display: block;
+		backface-visibility: hidden;
+		padding: 0;
+		&:hover,
+		&:focus{
+			img{
+				@include opacity(.3);
+			}
+		}
+		img{
+			margin: 0;
+			width: 100%;
+			transition: all 350ms ease;
+			backface-visibility: hidden;
+			display: block;
+		}
+	}
+
+	.portfolio-item-link{
+		+ .portfolio-item-header{
+			margin-top: 20px;
+		}
+	}
+	&-header{}
+	&-title{
+		@extend %font-subtitle-two;
+		margin: 0;
+		@include max767{
+			font-size: 21px;
+		}
+	}
+	&-category{
+		@extend %font-subtitle-small;
+		font-weight: 300;
+		display: block;
+		@include max767{
+			font-size: 16px;
+		}
+		a{
+			&:hover,
+			&:focus{
+				text-decoration: underline;
+			}
+		}
+	}
+
+	&-niche{
+		a{
+			@extend %font-16;
+			font-weight: 300i;
+			font-style: italic;
+			color: $text-color-gray;
+
+			@include max767{
+				font-size: 12px;
+			}
+			&:hover,
+			&:focus{
+				text-decoration: underline;
+			}
+		}
+	}
+}

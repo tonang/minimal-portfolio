@@ -1,0 +1,95 @@
+// 3.3 SITE MAIN - SITE MAIN PORTFOLIO
+.site-main-about{
+	+ .site-main-portfolio{
+		margin-top: 140px;
+		@include max1280{
+			margin-top: 75px;
+		}
+	}
+}
+
+.site-main-portfolio{
+	display: grid;
+	grid-gap: 15px;
+
+	grid-template-columns: 1fr 1fr;
+
+	@include max690{
+		grid-template-columns: 1fr;
+	}
+}
+
+
+.portfolio-item{
+	margin-bottom: 140px;
+	@include max1280{
+		margin-bottom: 20px;
+	}
+	@include max690{
+		grid-column: 1;
+	}
+	&-link{
+		background: $color-dark;
+		display: block;
+		backface-visibility: hidden;
+		padding: 0;
+		&:hover,
+		&:focus{
+			img{
+				@include opacity(.3);
+			}
+		}
+		img{
+			margin: 0;
+			width: 100%;
+			transition: all 350ms ease;
+			backface-visibility: hidden;
+			display: block;
+		}
+	}
+
+	.portfolio-item-link{
+		+ .portfolio-item-header{
+			margin-top: 20px;
+		}
+	}
+	&-header{}
+	&-title{
+		@extend %font-subtitle-two;
+		margin: 0;
+		@include max767{
+			font-size: 21px;
+		}
+	}
+	&-category{
+		@extend %font-subtitle-small;
+		font-weight: 300;
+		display: block;
+		@include max767{
+			font-size: 16px;
+		}
+		a{
+			&:hover,
+			&:focus{
+				text-decoration: underline;
+			}
+		}
+	}
+
+	&-niche{
+		a{
+			@extend %font-16;
+			font-weight: 300i;
+			font-style: italic;
+			color: $text-color-gray;
+
+			@include max767{
+				font-size: 12px;
+			}
+			&:hover,
+			&:focus{
+				text-decoration: underline;
+			}
+		}
+	}
+}

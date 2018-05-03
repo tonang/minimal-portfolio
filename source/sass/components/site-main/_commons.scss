@@ -1,0 +1,15 @@
+// 3.1 SITE MAIN - COMMONS
+.site-header{
+	+ .site-main{
+		margin-top: 230px;
+
+		@include max1280(){
+			margin-top: 75px;
+		}
+		@include max767{
+			margin-top: 40px;
+		}
+	}
+}
+.site-main{
+}

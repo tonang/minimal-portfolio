@@ -1,0 +1,40 @@
+// 4.1 SITE FOOTER - COMMONS
+.site-main{
+	+ .site-footer{
+		margin-top: 160px;
+		@include max1280{
+			margin-top: 90px;
+		}
+		@include max767{
+			margin-top: 40px;
+		}
+	}
+}
+.site-footer{
+	padding-bottom: 100px;
+}
+
+// 4.2 SITE FOOTER - STYLING
+.site-footer{
+	&-title{
+		margin: 0;
+		line-height: 1;
+
+		@include max767{
+			font-size: 21px;
+		}
+		+ .site-footer-subtitle{
+			margin-top: 20px;
+		}
+	}
+	&-subtitle{
+		font-weight: 300;
+		@extend %font-subtitle;
+		margin: 0;
+		line-height: 1.2;
+
+		@include max767{
+			font-size: 14px;
+		}
+	}
+}

@@ -1,0 +1,39 @@
+// 1.1 GLOBAL - COMMONS
+body, html{
+	height: 100%;
+}
+
+body{
+	color: $text-color-default;
+	font-family: $font-body;
+	@extend %font-16;
+	line-height: 1.65;
+}
+
+body{
+	display: grid;
+	grid-template-rows: auto;
+
+	width: 1170px;
+	margin: 0 auto;
+
+	@include max1280(){
+		width: 1050px;
+	}
+	@include max1150{
+		width: 995px;
+	}
+
+	@include max995{
+		width: 767px;
+	}
+
+	@include max767{
+		width: 90%;
+	}
+}
+
+.site-header,
+.site-footer{
+	grid-column: 1 / 3; // shorthand 
+}

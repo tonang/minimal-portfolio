@@ -1,0 +1,55 @@
+// 2.1 SITE HEADER - COMMONS
+.site-header{
+	padding-top: 400px;
+
+	@include max1280(){
+		padding-top: 120px;
+	}
+	@include max767{
+		padding-top: 40px;
+	}
+}
+
+// 2.2 SITE HEADER - STYLING
+.site-header{
+
+	&-title{
+		text-transform: uppercase;
+		margin: 0;
+		line-height: 1;
+
+		+ .site-header-subtitle{
+			margin-top: 20px;
+			@include max1280(){
+				margin-top: 10px;
+			}
+		}
+	}// .site-header-title
+
+	&-subtitle {
+		@extend %font-title;
+		margin: 0;
+		line-height: 1.2;
+
+		@include max767{
+			font-size: 21px;
+		}
+
+		+ p{ 
+			margin-top: 20px;
+			@include max1280(){
+				margin-top: 10px;
+			}
+		} 
+	} // .site-header-subtitle
+
+	p{
+		@extend %font-subtitle;
+		font-weight: 300;
+		line-height: 1.2;
+
+		@include max767{
+			font-size: 14px;
+		}
+	}
+}
